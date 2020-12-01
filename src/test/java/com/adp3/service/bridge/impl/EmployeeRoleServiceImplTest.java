@@ -6,6 +6,7 @@ import com.adp3.factory.bridge.EmployeeRoleFactory;
 import com.adp3.service.bridge.EmployeeRoleService;
 import com.adp3.service.bridge.impl.EmployeeRoleServiceImpl;
 import com.adp3.util.GenericHelper;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 //import org.junit.jupiter.api.Test;
@@ -15,6 +16,10 @@ import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,7 +35,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmployeeRoleServiceImplTest {
     @Autowired
-    private EmployeeRoleService employeeRoleService;
+    private EmployeeRoleServiceImpl employeeRoleService;
     private static final String empId = GenericHelper.generateID();
     EmployeeRole employeeRole;
 
@@ -44,7 +49,7 @@ public class EmployeeRoleServiceImplTest {
     @Test
     public void a_create() {
         EmployeeRole created = employeeRoleService.create(employeeRole);
-        //assertEquals(employeeRole, created);
+        assertEquals(employeeRole.getEmpID(), created.getEmpID());
         System.out.println(created);
 
     }
@@ -65,6 +70,8 @@ public class EmployeeRoleServiceImplTest {
 
     @Test
     public void d_getAll() {
+        Set<EmployeeRole> employeeRoles = employeeRoleService.getAll();
+        Assert.assertEquals(employeeRoles,employeeRoles);
         System.out.println(employeeRoleService.getAll());
     }
 
@@ -74,7 +81,7 @@ public class EmployeeRoleServiceImplTest {
         employeeRoleService.delete(employeeRole.getEmpID());
     }
 
-    @Test
+   /* @Test
     public void getAllRolesStartWith() {
-    }
+    }*/
 }

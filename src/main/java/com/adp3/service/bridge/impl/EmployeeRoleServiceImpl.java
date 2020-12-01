@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Author: Sonwabo Kasi
@@ -50,20 +51,30 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
 
     @Override
     public Set<EmployeeRole> getAll() {
-        this.employeeRoleRepository.findAll();
+       return this.employeeRoleRepository.findAll().stream().collect(Collectors.toSet());
+    }
+
+/*
+    @Override
+    public Set<EmployeeRole> findByEmpID(String empId) {
+        Set<EmployeeRole> all = getAll();
+        Set<EmployeeRole> employeeRoles = new HashSet<>();
+        for (EmployeeRole es: all) {
+            if (es.getEmpID().equalsIgnoreCase(empId)){
+                employeeRoles.add(es);
+            }
+        }
         return null;
     }
 
     @Override
-    public Set<EmployeeRole> getAllEmployeeRolesStartWith() {
-        Set<EmployeeRole> employeeRoles= getAll();
-        Set<EmployeeRole> employeeRoleStartWithA = new HashSet<>();
-        for (EmployeeRole employeeRole :employeeRoles) {
-            if (employeeRole.getRoleID().trim().toLowerCase().startsWith("a")) {
-                employeeRoleStartWithA.add(employeeRole);
-            }
+    public EmployeeRole findByID(String empId, String roleId) {
 
+        EmployeeRole> byID = findByEmpID(empId);
+        for (EmployeeRole es: byID) {
+            if (es.getRoleID().equalsIgnoreCase(roleId));
+            return es;
         }
-        return employeeRoleStartWithA;
-    }
+        return null;
+    }*/
 }

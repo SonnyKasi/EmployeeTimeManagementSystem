@@ -13,8 +13,8 @@ import java.util.Set;
  */
 public interface EmployeeRoleService extends IService<EmployeeRole,String> {
     Set<EmployeeRole> getAll();
-
-    Set<EmployeeRole> getAllEmployeeRolesStartWith();
+   // Set<EmployeeRole> findByEmpID(String empId);
+    //EmployeeRole findById(String empId,String roleId);
 
 
 }

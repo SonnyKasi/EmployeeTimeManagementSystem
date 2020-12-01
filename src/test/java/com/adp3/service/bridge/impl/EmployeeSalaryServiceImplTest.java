@@ -69,4 +69,5 @@ public class EmployeeSalaryServiceImplTest {
         //Assert.assertTrue(deleted);
         System.out.println("DELETED: " + service.getAll());
     }
+
 }

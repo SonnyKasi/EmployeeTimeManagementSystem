@@ -11,6 +11,13 @@ import java.io.Serializable;
 public class EmployeeRoleId implements Serializable {
     private String empID,roleID;
 
+    public EmployeeRoleId(){}
+
+    public EmployeeRoleId(String empID,String roleID){
+    this.empID = empID;
+    this.roleID = roleID;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

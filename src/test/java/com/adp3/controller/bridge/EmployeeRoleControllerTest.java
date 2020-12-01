@@ -36,7 +36,7 @@ public class EmployeeRoleControllerTest {
 
     @Autowired
     private TestRestTemplate testRestTemplate;
-    private String baseURL = "http://localhost:8080/employeeManagementSystem/employeeRole/";
+    private String baseURL = "http://localhost:8080/employeeRole/";
     private String username = "Super";
     private String password = "Password.ADP3";
 
@@ -60,7 +60,7 @@ public class EmployeeRoleControllerTest {
 
     @Test //read id created
     public void b_read() {
-        String url = baseURL + "read" + employeeRole.getEmpID();
+        String url = baseURL + "read/" + employeeRole.getEmpID();
         System.out.println("Read BaseUrl:  " + url);
         testRestTemplate.getRestTemplate().getForObject(baseURL + "/employeeRole/read", EmployeeRole.class);
         System.out.println(employeeRole.getEmpID());
@@ -69,6 +69,7 @@ public class EmployeeRoleControllerTest {
 
     @Test //update employee role
     public void c_update() {
+        String url = baseURL + "update";
         EmployeeRole employeeRoleUpdate = new EmployeeRole.Builder().copy(employeeRole).setRoleId("Manager").build();
         assertNotNull(employeeRoleUpdate);
         System.out.println(employeeRoleUpdate);
