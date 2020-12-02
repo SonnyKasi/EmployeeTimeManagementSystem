@@ -17,7 +17,10 @@ public interface LeaveReportService extends IService <LeaveReport,String> {
     //Retrieves collection specific to LeaveReportService
     Set<LeaveReport> getAll();
     /*
-     List<LeaveReport> findAll(Sort var1); // sorts LeaveReports
+    List<LeaveReport> findAll(Sort var1); // sorts LeaveReports
     List<LeaveReport> findAllById(Iterable<ID> var1); // find LeaveReportsByID
+    Set<LeaveReport> findAllByEmpID(); // search all leaveReports per Employee
+    Set<LeaveReport> findAllByStoreID(); // search leaveReports by Store
+    HttpURLConnection smsLeaveAlert(); //create leave alert for leave taken
     */
 }
